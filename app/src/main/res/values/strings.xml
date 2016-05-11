@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VaultForAndroid</string>
+    <string name="save">Save</string>
+    <string name="settings">Settings</string>
+    <string name="menu">Menu</string>
+    <string name="vaultServerIp">Vault Server IP</string>
+    <string name="vaultToken">Vault Token</string>
+    <string name="serverIp">serverIp</string>
+    <string name="token">token</string>
+    <string name="toastSaved">Saved</string>
+    <string name="toastUpdating">Updating...</string>
+    <string name="secretView">Secret View</string>
+    <string name="secretPath">secretName</string>
+    <string name="toastExit">Press exit one more time to exit</string>
+    <string name="secret_data_title">Data</string>
+    <string name="lease_id">Lease ID</string>
+    <string name="renewable">Renewable</string>
+    <string name="lease_duration">Lease Duration</string>
+    <string name="warnings">Warnings</string>
+    <string name="auth">Auth</string>
+    <string name="copiedToClipboard">Copied to clipboard</string>
+</resources>
