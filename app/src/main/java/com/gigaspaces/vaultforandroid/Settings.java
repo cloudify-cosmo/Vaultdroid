@@ -13,8 +13,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class Settings extends Activity {
-    EditText vaultServerIp;
-    EditText vaultToken;
+    EditText mVaultServerIp;
+    EditText mVaultServerIpPort;
+    EditText mVaultToken;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,12 +29,14 @@ public class Settings extends Activity {
         final Button saveButton = (Button) findViewById(R.id.saveButton);
         final Context context = this;
 
-        vaultServerIp = (EditText) findViewById(R.id.vaultServerIp);
-        vaultToken = (EditText) findViewById(R.id.vaultToken);
+        mVaultServerIp = (EditText) findViewById(R.id.vaultServerIp);
+        mVaultServerIpPort = (EditText) findViewById(R.id.vaultServerIpPort);
+        mVaultToken = (EditText) findViewById(R.id.vaultToken);
 
-        vaultServerIp.addTextChangedListener(new TextWatcher() {
+        mVaultServerIp.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -41,12 +44,14 @@ public class Settings extends Activity {
             }
 
             @Override
-            public void afterTextChanged(Editable s) {}
+            public void afterTextChanged(Editable s) {
+            }
         });
 
-        vaultToken.addTextChangedListener(new TextWatcher() {
+        mVaultServerIpPort.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -54,30 +59,54 @@ public class Settings extends Activity {
             }
 
             @Override
-            public void afterTextChanged(Editable s) {}
+            public void afterTextChanged(Editable s) {
+            }
+        });
+
+        mVaultToken.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                saveButton.setEnabled(true);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+            }
         });
 
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
-                SharedPreferences.Editor editor = sharedPref.edit();
-                editor.putString(getString(R.string.serverIp), vaultServerIp.getText().toString());
-                editor.putString(getString(R.string.token), vaultToken.getText().toString());
-                editor.apply();
-                saveButton.setEnabled(false);
+                String vaultServerIp = mVaultServerIp.getText().toString();
+                if (!vaultServerIp.contains(":")) {
+                    SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
+                    SharedPreferences.Editor editor = sharedPref.edit();
+                    editor.putString(getString(R.string.serverIp), mVaultServerIp.getText().toString());
+                    editor.putString(getString(R.string.serverIpPort), mVaultServerIpPort.getText().toString());
+                    editor.putString(getString(R.string.token), mVaultToken.getText().toString());
+                    editor.apply();
+                    saveButton.setEnabled(false);
 
-                Toast.makeText(context, R.string.toastSaved, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, R.string.toastSaved, Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(context, R.string.mistplacesPortNumber, Toast.LENGTH_LONG).show();
+                }
             }
         });
 
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
-        String vaultServerIpText = sharedPref.getString(getString(R.string.serverIp), "");
-        String vaultTokenText = sharedPref.getString(getString(R.string.token), "");
+        String vaultServerIp = sharedPref.getString(getString(R.string.serverIp), "");
+        String vaultServerIpPort = sharedPref.getString(getString(R.string.serverIpPort), "");
+        String vaultToken = sharedPref.getString(getString(R.string.token), "");
 
-        if (!vaultServerIpText.isEmpty() && !vaultTokenText.isEmpty()) {
-            vaultServerIp.setText(vaultServerIpText);
-            vaultToken.setText(vaultTokenText);
+        if (!vaultServerIp.isEmpty() && !vaultToken.isEmpty()) {
+            mVaultServerIp.setText(vaultServerIp);
+            mVaultServerIpPort.setText(vaultServerIpPort);
+            mVaultToken.setText(vaultToken);
             saveButton.setEnabled(false);
         }
     }

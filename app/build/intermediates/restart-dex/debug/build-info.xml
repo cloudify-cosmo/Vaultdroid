@@ -4,29 +4,139 @@
     api-level="23"
     density="560dpi"
     format="7"
-    timestamp="37825757213344" >
+    timestamp="41631042594556"
+    verifier="FIELD_ADDED" >
 
     <task
         name="javac"
-        duration="246" />
+        duration="100" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="99" />
+        duration="20" />
     <task
         name="verifier"
-        duration="5" />
+        duration="1" />
 
     <artifact
-        location="/home/david/development/VaultForAndroid/app/build/outputs/apk/app-debug.apk"
-        type="MAIN" />
+        location="/home/david/development/VaultForAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_9/classes.dex"
+        type="DEX" />
+    <artifact
+        location="/home/david/development/VaultForAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_8/classes.dex"
+        type="DEX" />
+    <artifact
+        location="/home/david/development/VaultForAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_5/classes.dex"
+        type="DEX" />
+    <artifact
+        location="/home/david/development/VaultForAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_6/classes.dex"
+        type="DEX" />
+    <artifact
+        location="/home/david/development/VaultForAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_7/classes.dex"
+        type="DEX" />
+    <artifact
+        location="/home/david/development/VaultForAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-23.4.0_0bf25f7e7f927510dd22575202d191e1c3ae5919/classes.dex"
+        type="DEX" />
+    <artifact
+        location="/home/david/development/VaultForAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_3/classes.dex"
+        type="DEX" />
+    <artifact
+        location="/home/david/development/VaultForAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_67693d38e901abd49d5df92c18864028d4dd6e60/classes.dex"
+        type="DEX" />
+    <artifact
+        location="/home/david/development/VaultForAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-23.4.0_8fe68a4ddad7eb7c51b8878fedbecc6ad71b51e9/classes.dex"
+        type="DEX" />
+    <artifact
+        location="/home/david/development/VaultForAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_4/classes.dex"
+        type="DEX" />
+    <artifact
+        location="/home/david/development/VaultForAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-23.4.0_ac0c6adf640de3ddae49ecfb220dea9f23fabc8b/classes.dex"
+        type="DEX" />
+    <artifact
+        location="/home/david/development/VaultForAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_1/classes.dex"
+        type="DEX" />
+    <artifact
+        location="/home/david/development/VaultForAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-23.4.0_a18de717f6f2a06dae78a1edae6468a3da0f716c/classes.dex"
+        type="DEX" />
+    <artifact
+        location="/home/david/development/VaultForAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-23.4.0_51cf3fec511746fae106f2edaa392d760c00e61b/classes.dex"
+        type="DEX" />
+    <artifact
+        location="/home/david/development/VaultForAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-23.4.0_6cfde19df37847b1eaa9fe0014eb28cec6668ec5/classes.dex"
+        type="DEX" />
+    <artifact
+        location="/home/david/development/VaultForAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_27756d68810a5c41839b8481bbafcfe276ce2771/classes.dex"
+        type="DEX" />
+    <artifact
+        location="/home/david/development/VaultForAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_0/classes.dex"
+        type="DEX" />
+    <artifact
+        location="/home/david/development/VaultForAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_2/classes.dex"
+        type="DEX" />
 
-    <build timestamp="37825757213344" >
+    <build timestamp="41309636555760" >
         <artifact
             location="/home/david/development/VaultForAndroid/app/build/outputs/apk/app-debug.apk"
             type="MAIN" />
+    </build>
+    <build
+        timestamp="41631042594556"
+        verifier="FIELD_ADDED" >
+        <artifact
+            location="/home/david/development/VaultForAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_9/classes.dex"
+            type="DEX" />
+        <artifact
+            location="/home/david/development/VaultForAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_8/classes.dex"
+            type="DEX" />
+        <artifact
+            location="/home/david/development/VaultForAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_5/classes.dex"
+            type="DEX" />
+        <artifact
+            location="/home/david/development/VaultForAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_6/classes.dex"
+            type="DEX" />
+        <artifact
+            location="/home/david/development/VaultForAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_7/classes.dex"
+            type="DEX" />
+        <artifact
+            location="/home/david/development/VaultForAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-23.4.0_0bf25f7e7f927510dd22575202d191e1c3ae5919/classes.dex"
+            type="DEX" />
+        <artifact
+            location="/home/david/development/VaultForAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_3/classes.dex"
+            type="DEX" />
+        <artifact
+            location="/home/david/development/VaultForAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_67693d38e901abd49d5df92c18864028d4dd6e60/classes.dex"
+            type="DEX" />
+        <artifact
+            location="/home/david/development/VaultForAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-23.4.0_8fe68a4ddad7eb7c51b8878fedbecc6ad71b51e9/classes.dex"
+            type="DEX" />
+        <artifact
+            location="/home/david/development/VaultForAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_4/classes.dex"
+            type="DEX" />
+        <artifact
+            location="/home/david/development/VaultForAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-23.4.0_ac0c6adf640de3ddae49ecfb220dea9f23fabc8b/classes.dex"
+            type="DEX" />
+        <artifact
+            location="/home/david/development/VaultForAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_1/classes.dex"
+            type="DEX" />
+        <artifact
+            location="/home/david/development/VaultForAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-23.4.0_a18de717f6f2a06dae78a1edae6468a3da0f716c/classes.dex"
+            type="DEX" />
+        <artifact
+            location="/home/david/development/VaultForAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-23.4.0_51cf3fec511746fae106f2edaa392d760c00e61b/classes.dex"
+            type="DEX" />
+        <artifact
+            location="/home/david/development/VaultForAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-23.4.0_6cfde19df37847b1eaa9fe0014eb28cec6668ec5/classes.dex"
+            type="DEX" />
+        <artifact
+            location="/home/david/development/VaultForAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_27756d68810a5c41839b8481bbafcfe276ce2771/classes.dex"
+            type="DEX" />
+        <artifact
+            location="/home/david/development/VaultForAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_0/classes.dex"
+            type="DEX" />
+        <artifact
+            location="/home/david/development/VaultForAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_2/classes.dex"
+            type="DEX" />
     </build>
 
 </instant-run>
