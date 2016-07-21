@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class Settings extends Activity {
     EditText mVaultServerIp;
     EditText mVaultServerIpPort;
@@ -64,17 +66,44 @@ public class Settings extends Activity {
         });
 
         mVaultToken.addTextChangedListener(new TextWatcher() {
+            private String mBeforeText;
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                mBeforeText = s.toString();
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 saveButton.setEnabled(true);
+
+                // Add dashes automatically
+                String currentText = s.toString();
+
+                if (count > 0 && !mBeforeText.equals(currentText)) {
+                    currentText = addDashes(currentText);
+                    mVaultToken.setText(currentText);
+                    mVaultToken.setSelection(currentText.length());
+                }
+
             }
 
             @Override
             public void afterTextChanged(Editable s) {
+            }
+
+            private String addDashes(String text) {
+                int[] dashSpots = new int[]{8, 13, 18, 23};
+                String buffer = text;
+
+                for (int dashSpot : dashSpots) {
+                    if (dashSpot < buffer.length() && buffer.charAt(dashSpot) != '-') {
+                        buffer = buffer.substring(0, dashSpot)
+                                + "-"
+                                + buffer.substring(dashSpot, text.length());
+                    }
+                }
+
+                return buffer;
             }
         });
 
