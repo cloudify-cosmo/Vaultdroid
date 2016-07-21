@@ -20,4 +20,10 @@
     <string name="warnings">Warnings</string>
     <string name="auth">Auth</string>
     <string name="copiedToClipboard">Copied to clipboard</string>
+    <string name="vaultServerIpPortText">Vault Server IP Port</string>
+    <string name="mistplacesPortNumber">Port number should be in the port number field</string>
+    <string name="serverIpPort">serverIpPort</string>
+    <string name="vaultServerIpHint">IP address or hostname</string>
+    <string name="vaultserverIpPortHint">Port number</string>
+    <string name="defaultVaultServerIpPort">8200</string>
 </resources>

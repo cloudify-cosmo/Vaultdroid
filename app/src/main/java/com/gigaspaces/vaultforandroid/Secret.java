@@ -56,11 +56,12 @@ public class Secret extends Activity {
         this.setTitle(mSecretPath);
 
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
-        String mVaultServerIp = sharedPref.getString(getString(R.string.serverIp), "");
-        String mVaultToken = sharedPref.getString(getString(R.string.token), "");
+        String vaultServerIp = sharedPref.getString(getString(R.string.serverIp), "");
+        String vaultServerIpPort = sharedPref.getString(getString(R.string.serverIpPort), "");
+        String vaultToken = sharedPref.getString(getString(R.string.token), "");
 
-        if (!mVaultServerIp.isEmpty() && !mVaultToken.isEmpty()) {
-            new DisplaySecretDetails(mVaultServerIp, mVaultToken).execute();
+        if (!vaultServerIp.isEmpty() && !vaultServerIpPort.isEmpty() && !vaultToken.isEmpty()) {
+            new DisplaySecretDetails(vaultServerIp, vaultServerIpPort, vaultToken).execute();
         }
 
         mListViewAdapter = new SecretDataListViewAdapter(this, null);
@@ -116,10 +117,12 @@ public class Secret extends Activity {
 
     class DisplaySecretDetails extends AsyncTask<String, Void, JSONObject> {
         String mVaultIp;
+        String mVaultIpPort;
         String mToken;
 
-        public DisplaySecretDetails(String vaultIp, String token) {
+        public DisplaySecretDetails(String vaultIp, String vaultIpPort, String token) {
             mVaultIp = vaultIp;
+            mVaultIpPort = vaultIpPort;
             mToken = token;
         }
 
@@ -128,7 +131,7 @@ public class Secret extends Activity {
             HttpURLConnection urlConnection = null;
             JSONObject jsonObject = null;
             try {
-                URL url = new URL("http://" + mVaultIp + "/v1/secret/" + mSecretPath);
+                URL url = new URL("http://" + mVaultIp + ":" + mVaultIpPort + "/v1/secret/" + mSecretPath);
 
                 urlConnection = (HttpURLConnection) url.openConnection();
                 urlConnection.setRequestMethod("GET");

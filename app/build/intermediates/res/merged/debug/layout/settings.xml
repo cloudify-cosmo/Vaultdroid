@@ -17,20 +17,40 @@
         android:id="@+id/vaultServerIp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/vaultIpText" />
+        android:layout_below="@id/vaultIpText"
+        android:inputType="text"
+        android:hint="@string/vaultServerIpHint"/>
+
+
+    <TextView
+        android:id="@+id/vaultServerIpPortText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/vaultServerIp"
+        android:text="@string/vaultServerIpPortText" />
+
+    <EditText
+        android:id="@+id/vaultServerIpPort"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/vaultServerIpPortText"
+        android:inputType="number"
+        android:hint="@string/vaultserverIpPortHint"
+        android:text="@string/defaultVaultServerIpPort"/>
 
     <TextView
         android:id="@+id/vaultTokenText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/vaultServerIp"
+        android:layout_below="@id/vaultServerIpPort"
         android:text="@string/vaultToken" />
 
     <EditText
         android:id="@+id/vaultToken"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/vaultTokenText" />
+        android:layout_below="@id/vaultTokenText"
+        android:inputType="text" />
 
     <Button
         android:id="@+id/saveButton"

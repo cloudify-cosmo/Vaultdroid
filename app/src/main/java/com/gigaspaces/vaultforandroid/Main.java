@@ -32,6 +32,7 @@ public class Main extends Activity {
     private ListView mListView;
     private ListViewAdapter mListViewAdapter;
     private String mVaultServerIp;
+    private String mVaultServerIpPort;
     private String mVaultToken;
     private ListParentClass mCurrentBreadcrumbItem;
     private ArrayList<ListParentClass> mListItems;
@@ -54,10 +55,11 @@ public class Main extends Activity {
 
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
         mVaultServerIp = sharedPref.getString(getString(R.string.serverIp), "");
+        mVaultServerIpPort = sharedPref.getString(getString(R.string.serverIpPort), "");
         mVaultToken = sharedPref.getString(getString(R.string.token), "");
 
-        if (!mVaultServerIp.isEmpty() && !mVaultToken.isEmpty()) {
-            new DisplaySecretsTask(mVaultServerIp, mVaultToken).execute();
+        if (!mVaultServerIp.isEmpty() && !mVaultServerIpPort.isEmpty() && !mVaultToken.isEmpty()) {
+            new DisplaySecretsTask(mVaultServerIp, mVaultServerIpPort, mVaultToken).execute();
             Toast.makeText(this, R.string.toastUpdating, Toast.LENGTH_SHORT).show();
         }
 
@@ -113,6 +115,7 @@ public class Main extends Activity {
         mListView = (ListView) findViewById(R.id.listView);
         mListViewAdapter = new ListViewAdapter(mListView.getContext(), new ArrayList<ListParentClass>());
         mVaultServerIp = "";
+        mVaultServerIpPort = "";
         mVaultToken = "";
 
         mListView.setAdapter(mListViewAdapter);
@@ -191,12 +194,14 @@ public class Main extends Activity {
     }
 
     class DisplaySecretsTask extends AsyncTask<String, Void, JSONArray> {
-        String _vaultIp;
-        String _token;
+        String mVaultServerIp;
+        String mVaultToken;
+        String mVaultServerIpPort;
 
-        public DisplaySecretsTask(String vaultIp, String token) {
-            _vaultIp = vaultIp;
-            _token = token;
+        public DisplaySecretsTask(String vaultIp, String vaultIpPort, String token) {
+            mVaultServerIp = vaultIp;
+            mVaultServerIpPort = vaultIpPort;
+            mVaultToken = token;
         }
 
         private JSONArray getSecrets(String folderPath) {
@@ -204,11 +209,11 @@ public class Main extends Activity {
             JSONObject jsonObject = null;
             JSONArray secretsArray = new JSONArray();
             try {
-                URL url = new URL("http://" + _vaultIp + "/v1/" + folderPath + "?list=true");
+                URL url = new URL("http://" + mVaultServerIp + ":" + mVaultServerIpPort + "/v1/" + folderPath + "?list=true");
 
                 urlConnection = (HttpURLConnection) url.openConnection();
                 urlConnection.setRequestMethod("GET");
-                urlConnection.setRequestProperty("X-Vault-Token", _token);
+                urlConnection.setRequestProperty("X-Vault-Token", mVaultToken);
 
                 InputStream in = new BufferedInputStream(urlConnection.getInputStream());
                 jsonObject = new JSONObject(convertInputStreamToString(in));
