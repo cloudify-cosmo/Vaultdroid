@@ -100,8 +100,12 @@ public class Main extends Activity {
                 mCurrentBreadcrumbItem = null;
             }
         } else {
-            mBackKeyPressedCounter++;
-            Toast.makeText(this, R.string.toastExit, Toast.LENGTH_SHORT).show();
+            if (mBackKeyPressedCounter >= 1) {
+                finish();
+            } else {
+                mBackKeyPressedCounter++;
+                Toast.makeText(this, R.string.toastExit, Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
