@@ -26,4 +26,5 @@
     <string name="vaultServerIpHint">IP address or hostname</string>
     <string name="vaultserverIpPortHint">Port number</string>
     <string name="defaultVaultServerIpPort">8200</string>
+    <string name="dataFragment">dataFragment</string>
 </resources>

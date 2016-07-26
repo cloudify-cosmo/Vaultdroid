@@ -4,15 +4,16 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.gigaspaces.vaultforandroid.R;
 
 import java.util.ArrayList;
 
-public class ListViewAdapter extends ArrayAdapter<ListParentClass> {
+public class ListViewAdapter extends BaseAdapter {
     Context mContext;
+    ArrayList<ListParentClass> mParents;
 
 
     private static class ViewHolder {
@@ -20,9 +21,23 @@ public class ListViewAdapter extends ArrayAdapter<ListParentClass> {
     }
 
     public ListViewAdapter(Context context, ArrayList<ListParentClass> parents) {
-        super(context, -1, parents);
-
+        mParents = (parents == null) ? new ArrayList<ListParentClass>() : parents;
         mContext = context;
+    }
+
+    @Override
+    public int getCount() {
+        return (mParents == null ) ? 0 : mParents.size();
+    }
+
+    @Override
+    public ListParentClass getItem(int position) {
+        return (mParents == null || position < 0) ? null : mParents.get(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
     }
 
     @Override
@@ -45,17 +60,8 @@ public class ListViewAdapter extends ArrayAdapter<ListParentClass> {
         return convertView;
     }
 
-    public void updateParents(ArrayList<ListParentClass> listItems) {
-        clear();
-
-        if (listItems != null) {
-            for (int i = 0; i < listItems.size(); i++) {
-                if (listItems.get(i) != null) {
-                    insert(listItems.get(i), i);
-                }
-            }
-        }
-
+    public void setParents(ArrayList<ListParentClass> parents) {
+        mParents = (parents == null) ? new ArrayList<ListParentClass>() : parents;;
         notifyDataSetChanged();
     }
 

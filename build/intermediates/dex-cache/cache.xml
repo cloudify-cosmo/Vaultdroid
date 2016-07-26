@@ -3,59 +3,45 @@
 
     <item
         jar="/home/david/development/VaultForAndroid/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.4.0/jars/classes.jar"
-        jumboMode="true"
+        jumboMode="false"
         revision="23.0.3"
         sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
-        <dex dex="/home/david/development/VaultForAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-23.4.0_0bf25f7e7f927510dd22575202d191e1c3ae5919/classes.dex" />
+        <dex dex="/home/david/development/VaultForAndroid/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-23.4.0_0bf25f7e7f927510dd22575202d191e1c3ae5919.jar" />
     </item>
     <item
         jar="/home/david/development/VaultForAndroid/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/jars/classes.jar"
-        jumboMode="true"
+        jumboMode="false"
         revision="23.0.3"
         sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
-        <dex dex="/home/david/development/VaultForAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-23.4.0_ac0c6adf640de3ddae49ecfb220dea9f23fabc8b/classes.dex" />
-    </item>
-    <item
-        jar="/home/david/development/VaultForAndroid/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.4.0/jars/classes.jar"
-        jumboMode="true"
-        revision="23.0.3"
-        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
-        <dex dex="/home/david/development/VaultForAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-23.4.0_a18de717f6f2a06dae78a1edae6468a3da0f716c/classes.dex" />
-    </item>
-    <item
-        jar="/home/david/development/VaultForAndroid/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        revision="23.0.3"
-        sha1="d83ee7e02a64a344ebf4bad17aedd62fb40a64cb">
-        <dex dex="/home/david/development/VaultForAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_67693d38e901abd49d5df92c18864028d4dd6e60/classes.dex" />
-    </item>
-    <item
-        jar="/home/david/android-sdk-linux/extras/android/m2repository/com/android/support/support-annotations/23.4.0/support-annotations-23.4.0.jar"
-        jumboMode="true"
-        revision="23.0.3"
-        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
-        <dex dex="/home/david/development/VaultForAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-23.4.0_8fe68a4ddad7eb7c51b8878fedbecc6ad71b51e9/classes.dex" />
+        <dex dex="/home/david/development/VaultForAndroid/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-23.4.0_ac0c6adf640de3ddae49ecfb220dea9f23fabc8b.jar" />
     </item>
     <item
         jar="/home/david/development/VaultForAndroid/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/libs/internal_impl-23.4.0.jar"
-        jumboMode="true"
+        jumboMode="false"
         revision="23.0.3"
         sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
-        <dex dex="/home/david/development/VaultForAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-23.4.0_6cfde19df37847b1eaa9fe0014eb28cec6668ec5/classes.dex" />
+        <dex dex="/home/david/development/VaultForAndroid/app/build/intermediates/pre-dexed/debug/internal_impl-23.4.0_6cfde19df37847b1eaa9fe0014eb28cec6668ec5.jar" />
+    </item>
+    <item
+        jar="/home/david/android-sdk-linux/extras/android/m2repository/com/android/support/support-annotations/23.4.0/support-annotations-23.4.0.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
+        <dex dex="/home/david/development/VaultForAndroid/app/build/intermediates/pre-dexed/debug/support-annotations-23.4.0_8fe68a4ddad7eb7c51b8878fedbecc6ad71b51e9.jar" />
+    </item>
+    <item
+        jar="/home/david/development/VaultForAndroid/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
+        <dex dex="/home/david/development/VaultForAndroid/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-23.4.0_a18de717f6f2a06dae78a1edae6468a3da0f716c.jar" />
     </item>
     <item
         jar="/home/david/development/VaultForAndroid/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/classes.jar"
-        jumboMode="true"
+        jumboMode="false"
         revision="23.0.3"
         sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
-        <dex dex="/home/david/development/VaultForAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-23.4.0_51cf3fec511746fae106f2edaa392d760c00e61b/classes.dex" />
-    </item>
-    <item
-        jar="/home/david/development/VaultForAndroid/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
-        jumboMode="true"
-        revision="23.0.3"
-        sha1="f3f7de8352d30f4d2b01918ed69b08c25252bc39">
-        <dex dex="/home/david/development/VaultForAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_27756d68810a5c41839b8481bbafcfe276ce2771/classes.dex" />
+        <dex dex="/home/david/development/VaultForAndroid/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-23.4.0_51cf3fec511746fae106f2edaa392d760c00e61b.jar" />
     </item>
 
 </items>

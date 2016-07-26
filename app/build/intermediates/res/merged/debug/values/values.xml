@@ -215,6 +215,7 @@
     <string name="app_name">VaultForAndroid</string>
     <string name="auth">Auth</string>
     <string name="copiedToClipboard">Copied to clipboard</string>
+    <string name="dataFragment">dataFragment</string>
     <string name="defaultVaultServerIpPort">8200</string>
     <string name="lease_duration">Lease Duration</string>
     <string name="lease_id">Lease ID</string>

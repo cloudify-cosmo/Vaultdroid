@@ -1,6 +1,7 @@
 package com.gigaspaces.vaultforandroid;
 
 import android.app.Activity;
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -37,6 +38,7 @@ public class Main extends Activity {
     private ListParentClass mCurrentBreadcrumbItem;
     private ArrayList<ListParentClass> mListItems;
     private int mBackKeyPressedCounter;
+    private RetainedFragment mDataFragment;
 
     /**
      * Called when the activity is first created.
@@ -47,23 +49,6 @@ public class Main extends Activity {
         setContentView(R.layout.main);
 
         setupViews();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
-        mVaultServerIp = sharedPref.getString(getString(R.string.serverIp), "");
-        mVaultServerIpPort = sharedPref.getString(getString(R.string.serverIpPort), "");
-        mVaultToken = sharedPref.getString(getString(R.string.token), "");
-
-        if (!mVaultServerIp.isEmpty() && !mVaultServerIpPort.isEmpty() && !mVaultToken.isEmpty()) {
-            new DisplaySecretsTask(mVaultServerIp, mVaultServerIpPort, mVaultToken).execute();
-            Toast.makeText(this, R.string.toastUpdating, Toast.LENGTH_SHORT).show();
-        }
-
-        mBackKeyPressedCounter = 0;
     }
 
     @Override
@@ -94,11 +79,11 @@ public class Main extends Activity {
 
             if (breadCrumbItemParent != null) {
                 // Display the upper level
-                mListViewAdapter.updateParents(breadCrumbItemParent.getChildren());
+                mListViewAdapter.setParents(breadCrumbItemParent.getChildren());
                 mCurrentBreadcrumbItem = breadCrumbItemParent;
             } else {
                 // Display root level
-                mListViewAdapter.updateParents(mListItems);
+                mListViewAdapter.setParents(mListItems);
                 mCurrentBreadcrumbItem = null;
             }
         } else {
@@ -111,9 +96,49 @@ public class Main extends Activity {
         }
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        mDataFragment.setCurrentBreadcrumbItem(mCurrentBreadcrumbItem);
+        mDataFragment.setListItems(mListItems);
+    }
+
     private void setupViews() {
+        FragmentManager fm = getFragmentManager();
+        mDataFragment = (RetainedFragment) fm.findFragmentByTag(getString(R.string.dataFragment));
+
+        if (mDataFragment == null) {
+            mDataFragment = new RetainedFragment();
+            fm.beginTransaction().add(mDataFragment, getString(R.string.dataFragment)).commit();
+        }
+
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+        mVaultServerIp = sharedPref.getString(getString(R.string.serverIp), "");
+        mVaultServerIpPort = sharedPref.getString(getString(R.string.serverIpPort), "");
+        mVaultToken = sharedPref.getString(getString(R.string.token), "");
+
+        mListItems = mDataFragment.getListItems();
+
+        if (mListItems == null
+                && !mVaultServerIp.isEmpty()
+                && !mVaultServerIpPort.isEmpty()
+                && !mVaultToken.isEmpty()) {
+
+            new DisplaySecretsTask(mVaultServerIp, mVaultServerIpPort, mVaultToken).execute();
+            Toast.makeText(this, R.string.toastUpdating, Toast.LENGTH_SHORT).show();
+        }
+
+        mCurrentBreadcrumbItem = mDataFragment.getCurrentBreadcrumbItem();
+
         mListView = (ListView) findViewById(R.id.listView);
-        mListViewAdapter = new ListViewAdapter(mListView.getContext(), new ArrayList<ListParentClass>());
+
+        if (mCurrentBreadcrumbItem != null) {
+            mListViewAdapter = new ListViewAdapter(mListView.getContext(), mCurrentBreadcrumbItem.getChildren());
+        } else {
+            mListViewAdapter = new ListViewAdapter(mListView.getContext(), mListItems);
+        }
+
         mVaultServerIp = "";
         mVaultServerIpPort = "";
         mVaultToken = "";
@@ -124,7 +149,7 @@ public class Main extends Activity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 ListParentClass currentItem = (ListParentClass) mListView.getItemAtPosition(position);
                 if (currentItem.isFolder()) {
-                    mListViewAdapter.updateParents(currentItem.getChildren());
+                    mListViewAdapter.setParents(currentItem.getChildren());
                     mCurrentBreadcrumbItem = currentItem;
                 } else {
                     Intent activityIntent = new Intent(getApplicationContext(), Secret.class);
@@ -134,6 +159,8 @@ public class Main extends Activity {
                 }
             }
         });
+
+        mBackKeyPressedCounter = 0;
     }
 
     private ArrayList<ListParentClass> constructListItemsTree(JSONArray items) {
@@ -278,8 +305,7 @@ public class Main extends Activity {
             Log.d(this.getClass().toString(), "Passing secrets: " + secrets.toString());
             ArrayList<ListParentClass> listItems = constructListItemsTree(secrets);
             mListItems = listItems;
-            // TODO: convert listItems to something simple using getListItemsStrings()
-            mListViewAdapter.updateParents(listItems);
+            mListViewAdapter.setParents(listItems);
         }
 
         private String convertInputStreamToString(final InputStream is) {
