@@ -212,7 +212,7 @@
     <string name="abc_shareactionprovider_share_with">Share with</string>
     <string name="abc_shareactionprovider_share_with_application">Share with %s</string>
     <string name="abc_toolbar_collapse_description">Collapse</string>
-    <string name="app_name">VaultForAndroid</string>
+    <string name="app_name">Vaultdroid</string>
     <string name="auth">Auth</string>
     <string name="copiedToClipboard">Copied to clipboard</string>
     <string name="dataFragment">dataFragment</string>
