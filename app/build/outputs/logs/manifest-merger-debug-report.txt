@@ -2,7 +2,7 @@
 manifest
 ADDED from /home/david/development/VaultForAndroid/app/src/main/AndroidManifest.xml:2:1-31:12
 	package
-		ADDED from /home/david/development/VaultForAndroid/app/src/main/AndroidManifest.xml:3:5-45
+		ADDED from /home/david/development/VaultForAndroid/app/src/main/AndroidManifest.xml:3:5-40
 		INJECTED from /home/david/development/VaultForAndroid/app/src/main/AndroidManifest.xml
 		INJECTED from /home/david/development/VaultForAndroid/app/src/main/AndroidManifest.xml
 	android:versionName
@@ -50,12 +50,12 @@ MERGED from [com.android.support:support-v4:23.4.0] /home/david/development/Vaul
 		ADDED from /home/david/development/VaultForAndroid/app/src/main/AndroidManifest.xml:13:9-41
 	android:icon
 		ADDED from /home/david/development/VaultForAndroid/app/src/main/AndroidManifest.xml:12:9-45
-activity#com.gigaspaces.vaultforandroid.Main
+activity#com.gigaspaces.vaultdroid.Main
 ADDED from /home/david/development/VaultForAndroid/app/src/main/AndroidManifest.xml:14:9-22:20
 	android:label
 		ADDED from /home/david/development/VaultForAndroid/app/src/main/AndroidManifest.xml:16:13-45
 	android:name
-		ADDED from /home/david/development/VaultForAndroid/app/src/main/AndroidManifest.xml:15:13-33
+		ADDED from /home/david/development/VaultForAndroid/app/src/main/AndroidManifest.xml:15:13-58
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
 ADDED from /home/david/development/VaultForAndroid/app/src/main/AndroidManifest.xml:17:13-21:29
 action#android.intent.action.MAIN
@@ -66,15 +66,15 @@ category#android.intent.category.LAUNCHER
 ADDED from /home/david/development/VaultForAndroid/app/src/main/AndroidManifest.xml:20:17-77
 	android:name
 		ADDED from /home/david/development/VaultForAndroid/app/src/main/AndroidManifest.xml:20:27-74
-activity#com.gigaspaces.vaultforandroid.Settings
+activity#com.gigaspaces.vaultdroid.Settings
 ADDED from /home/david/development/VaultForAndroid/app/src/main/AndroidManifest.xml:23:9-25:48
 	android:label
 		ADDED from /home/david/development/VaultForAndroid/app/src/main/AndroidManifest.xml:25:13-45
 	android:name
-		ADDED from /home/david/development/VaultForAndroid/app/src/main/AndroidManifest.xml:24:13-37
-activity#com.gigaspaces.vaultforandroid.Secret
-ADDED from /home/david/development/VaultForAndroid/app/src/main/AndroidManifest.xml:26:9-28:49
+		ADDED from /home/david/development/VaultForAndroid/app/src/main/AndroidManifest.xml:24:13-62
+activity#com.gigaspaces.vaultdroid.Secret
+ADDED from /home/david/development/VaultForAndroid/app/src/main/AndroidManifest.xml:26:9-28:50
 	android:label
 		ADDED from /home/david/development/VaultForAndroid/app/src/main/AndroidManifest.xml:28:13-47
 	android:name
-		ADDED from /home/david/development/VaultForAndroid/app/src/main/AndroidManifest.xml:27:13-35
+		ADDED from /home/david/development/VaultForAndroid/app/src/main/AndroidManifest.xml:27:13-60
