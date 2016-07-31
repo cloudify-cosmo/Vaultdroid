@@ -27,4 +27,5 @@
     <string name="vaultserverIpPortHint">Port number</string>
     <string name="defaultVaultServerIpPort">8200</string>
     <string name="dataFragment">dataFragment</string>
+    <string name="menu_refresh">Refresh</string>
 </resources>

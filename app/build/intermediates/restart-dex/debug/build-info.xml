@@ -4,29 +4,37 @@
     api-level="23"
     density="560dpi"
     format="7"
-    timestamp="80194619153457" >
+    timestamp="25774643912360"
+    verifier="METHOD_DELETED" >
 
     <task
         name="javac"
-        duration="242" />
+        duration="95" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="103" />
+        duration="26" />
     <task
         name="verifier"
-        duration="6" />
+        duration="2" />
 
     <artifact
-        location="/home/david/development/VaultForAndroid/app/build/outputs/apk/app-debug.apk"
-        type="MAIN" />
+        location="/home/david/development/Vaultdroid/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_5/classes.dex"
+        type="DEX" />
 
-    <build timestamp="80194619153457" >
+    <build timestamp="24521447130039" >
         <artifact
-            location="/home/david/development/VaultForAndroid/app/build/outputs/apk/app-debug.apk"
+            location="/home/david/development/Vaultdroid/app/build/outputs/apk/app-debug.apk"
             type="MAIN" />
+    </build>
+    <build
+        timestamp="25774643912360"
+        verifier="METHOD_DELETED" >
+        <artifact
+            location="/home/david/development/Vaultdroid/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_5/classes.dex"
+            type="DEX" />
     </build>
 
 </instant-run>

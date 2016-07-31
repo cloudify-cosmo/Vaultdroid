@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -39,6 +40,7 @@ public class Main extends Activity {
     private ArrayList<ListParentClass> mListItems;
     private int mBackKeyPressedCounter;
     private RetainedFragment mDataFragment;
+    private SwipeRefreshLayout mSwipeRefreshLayout;
 
     /**
      * Called when the activity is first created.
@@ -66,6 +68,14 @@ public class Main extends Activity {
                 Intent intent = new Intent(this, Settings.class);
                 startActivity(intent);
                 return true;
+            case R.id.menu_refresh:
+                if (!mVaultServerIp.isEmpty()
+                        && !mVaultServerIpPort.isEmpty()
+                        && !mVaultToken.isEmpty()) {
+
+                    mSwipeRefreshLayout.setRefreshing(true);
+                    new DisplaySecretsTask(mVaultServerIp, mVaultServerIpPort, mVaultToken).execute();
+                }
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -139,10 +149,6 @@ public class Main extends Activity {
             mListViewAdapter = new ListViewAdapter(mListView.getContext(), mListItems);
         }
 
-        mVaultServerIp = "";
-        mVaultServerIpPort = "";
-        mVaultToken = "";
-
         mListView.setAdapter(mListViewAdapter);
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -161,6 +167,19 @@ public class Main extends Activity {
         });
 
         mBackKeyPressedCounter = 0;
+
+        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefresh);
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                if (!mVaultServerIp.isEmpty()
+                        && !mVaultServerIpPort.isEmpty()
+                        && !mVaultToken.isEmpty()) {
+
+                    new DisplaySecretsTask(mVaultServerIp, mVaultServerIpPort, mVaultToken).execute();
+                }
+            }
+        });
     }
 
     private ArrayList<ListParentClass> constructListItemsTree(JSONArray items) {
@@ -305,7 +324,12 @@ public class Main extends Activity {
             Log.d(this.getClass().toString(), "Passing secrets: " + secrets.toString());
             ArrayList<ListParentClass> listItems = constructListItemsTree(secrets);
             mListItems = listItems;
-            mListViewAdapter.setParents(listItems);
+            mListViewAdapter.setParents(mListItems);
+
+            if (mSwipeRefreshLayout != null && mSwipeRefreshLayout.isRefreshing()) {
+                mSwipeRefreshLayout.setRefreshing(false);
+                // TODO: refresh and evaluate if the navigation position is still valid (it could be deleted after a refresh)
+            }
         }
 
         private String convertInputStreamToString(final InputStream is) {

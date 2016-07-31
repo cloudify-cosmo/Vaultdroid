@@ -220,6 +220,7 @@
     <string name="lease_duration">Lease Duration</string>
     <string name="lease_id">Lease ID</string>
     <string name="menu">Menu</string>
+    <string name="menu_refresh">Refresh</string>
     <string name="mistplacesPortNumber">Port number should be in the port number field</string>
     <string name="renewable">Renewable</string>
     <string name="save">Save</string>
